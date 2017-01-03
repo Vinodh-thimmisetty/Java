@@ -29,6 +29,8 @@ public class LinkedListOverview {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		
+		// Primitive Operations
 	 LinkedList<String> linkedList = new LinkedList<>();
 	 
 	
@@ -37,12 +39,15 @@ public class LinkedListOverview {
 	 linkedList.addFirst("Gopal"); // Inserts @ start of list
 	 linkedList.addLast("Pavan");	 // Insert @ End of List 
 	 
+	 linkedList.add(null);
 	 
 	 linkedList.offer("Bavya"); // Insert @ End of List 
 	 linkedList.offerFirst("Janani"); // Insert @ Start of List 
 	 linkedList.offerLast("durga"); // Insert @ End of List
 	
 	  
+	 linkedList.add(2, null);
+	 
 	 Iterator<String> ll  = linkedList.iterator();
 	 while (ll.hasNext()) {
 		String string = (String) ll.next();
@@ -82,8 +87,46 @@ public class LinkedListOverview {
 		System.out.println("Before  removing all --->"+string);
 	}
 	 
-	 linkedList.removeAll(linkedList); //Retrieves all elements in the list.
+	  linkedList.removeAll(linkedList); //Retrieves all elements in the list.
 		
+	  
+	  // Object Operations on linked list
+	  LinkedList<Person> personList = new LinkedList<>();
+	  
+
+		Person p11 = new Person(11, "vinodh", 123);
+		Person p21 = new Person(21, "Kranthi", 2123);
+		Person p31 = new Person(31, "Gopal", 3123);
+		Person p41 = new Person(41, "Pavan", 4123);
+		Person p51 = new Person(51, "Janani", 5123);//
+		Person p61 = new Person(61, "Sireesha", 6123);//
+		Person p71 = new Person(71, "Durga", 7123);//
+		Person p81 = new Person(81, "Haritha", 8123);//
+		Person p91 = new Person(91, "Bavya", 9123);//
+		
+		personList.addLast(p91);
+		personList.push(p41);
+		personList.offerFirst(p71);
+	    personList.add(2, p81);	
+		for (Person person : personList) {
+			System.out.println("Elements in the List ----->"+person.getName());
+		}		
+		
+		System.out.println("Iterator examples------- to Delete an object while Iterating");
+		Iterator<Person> personIterator = personList.iterator();
+		while (personIterator.hasNext()) {
+			Person p = (Person) personIterator.next();
+			if(p.getName().equalsIgnoreCase("bavya")){
+				System.out.println("elements in the List Deleted------>"+p);
+				personIterator.remove();
+			}
+			
+		}
+		
+		for (Person person : personList) {
+			System.out.println("After Deleting the Elements in the List ----->"+person.getName());
+		}	
+ 
 	 
 	
 	}
