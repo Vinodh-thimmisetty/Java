@@ -1,4 +1,4 @@
-# Complete Profile in 6 months except DS & Algorithms which is continuos study
+# Complete Profile in 6 months except DS & Algorithms
 1.Core Java[]
 2.Java Web services[]
 3.Sql/Oracle plsql[]
