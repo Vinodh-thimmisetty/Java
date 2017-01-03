@@ -1,15 +1,35 @@
 package com.vinodh.collections;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+/**
+ * 
+ * Data Structure : Arraylist --> Resizble or Growable ARRAY
+ * Insertion Order : Preserved
+ * Duplicates : Allowed
+ * Allows any type of objects [Homogenous or Heterogenous]
+ * NULL insertions ?? check out the code
+ * Synchoronized : NO !!
+ * Support Generics
+ * Support Iterators & forEach & Streams(java 8) 
+ * 		[[ elements in the list can be added/removed with help of Iterators but not with forEach ]] 	
+ * Algorithm Features:
+ *  Searching: Easy based on Index(Random access)
+ *  Deletion : @ end is easy
+ *  Insertion : @ end is easy
+ *  Sorting : Can be sort with help of Collections utility class
+ * @author Vinodh Kumar Thimmisetty
+ *
+ */
 
-public class ListInterface {
+public class ArrayListOverivew {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-
+	 
 		// Primitive Array List
 		ArrayList<String> arrayList = new ArrayList<>();
 		arrayList.add("Vinodh");
@@ -153,6 +173,27 @@ public class ListInterface {
 		 * occurrence of the specified element in this list, or -1 if this list
 		 * does not contain the element.
 		 */
+
+		// Syncronization of list: Only one thread can access @ a time
+
+		Collections.synchronizedList(persons);
+
+		// Is null allowed in Arraylist ?? check out
+
+		persons.add(null);
+		arrayList.add(null);
+		arrayList.add(null);
+		arrayList.add(null);
+
+		System.out.println("-------NUll insertion @ primitive level----");
+		for (String p : arrayList) {
+			System.out.println(p);
+		}
+
+		System.out.println("-------NUll insertion @ OBJECT level----");
+		for (Person p : persons) {
+			System.out.println(p.getName());
+		}
 
 	}
 }
