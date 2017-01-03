@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Iterator;
 /**
  * 
- * Data Structure : Arraylist --> Resizble or Growable ARRAY
+ * Data Structure : Arraylist --> Resizble or Growable ARRAY implemention
  * Insertion Order : Preserved
  * Duplicates : Allowed
  * Allows any type of objects [Homogenous or Heterogenous]
