@@ -126,6 +126,13 @@ Only show commits with a commit message containing the string
 Only show commits adding or removing code matching the string
 
 
+git commit --ammend ==> to have same previous commit with additional changes [replaced the results of previous commit]
+
+git reset HEAD ** file name ** ==> mover from staging to unstaged area
+ DANGER-----> git reset HEAD ** file name ** --head ==> working tree file is not touchedt
+ git checkout -- ** file name *** ==> move from modified to unmidified i.e., same as previous commit and discard all changes
+
+
 
 The rules for the patterns you can put in the .gitignore file are as follows:
 1.Blank lines or lines starting with # are ignored.
@@ -135,3 +142,16 @@ The rules for the patterns you can put in the .gitignore file are as follows:
 5.You can negate a pattern by starting it with an exclamation point (!)
 
 
+
+working with Remote Repositories:
+git remote -v ==> more info on servers(repos) available
+
+git remote add ** remote branch name **remote server url**
+git fetch ** server ** ==> updates only your local repo, but won't merge with working tree
+git pull ** server ** ==> do update + merge
+
+git push ***origin [remote name]** ***master[branch name]***
+
+git remote show origin ==> full info on remote
+
+git remote rename ** from *** *** to ***
