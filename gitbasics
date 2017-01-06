@@ -24,3 +24,27 @@ HEAD     ==> Branch currently checked out or working on
 objects/ ==> original content <code>
 refs/    ==> pointers to commit objects in the data(branch)
 index    ==> Staging area information
+
+
+There are two type of files:
+1. Tracked: Unmodified, Modified , Staged
+2. Untracked: Remaining all which are not committed (i.r., not exist in last snapshot)
+
+File status cycle:
+By default , when we clone all are tracked & unmodified ==> Modified ==> Staging
+new file ==> Staging (no modification)
+V.imp Git Commands:
+
+1. git clone [URL of https or ssh type]
+2. git add <file> ==> file added for staging
+3. git status (M-Modified, A-Staged, ??- untracled)
+ short cut for above is : git status -s (##), First character ==> status of working area && second ==> status of working tree
+
+The rules for the patterns you can put in the .gitignore file are as follows:
+1.Blank lines or lines starting with # are ignored.
+2.Standard glob patterns work.e.g:[0-9] (.*)
+3.You can start patterns with a forward slash (/) to avoid recursivity.
+4.You can end patterns with a forward slash (/) to specify a directory.
+5.You can negate a pattern by starting it with an exclamation point (!)
+
+
