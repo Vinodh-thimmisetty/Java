@@ -1,0 +1,51 @@
+
+Git Internal:
+ Git is content-addressable Filesystem(KEY-VALUE pairs),
+ 
+$ echo 'test content' | git hash-object -w --stdin
+d670460b4b4aece5915caf5c68d12f560a9fe3e4
+
+hash-object ==>  which takes some data, stores it in your .git directory, and gives you back the key the data is stored.
+-w ==> tells hash-object to store the data
+ 
+Output is a Hexadecimal number 40 digit long Secure Hash Algorithm,which produces a 160-bit (20-byte) hash value known as a message digest.
+First two digits ==> sub directory under .git/objects, next 38 digits as file name
+
+To print the content on console: $ git cat-file -p *** hash(d670460b4b4aece5915caf5c68d12f560a9fe3e4) ***
+
+Add versions:
+
+$ echo 'version 1' > test.txt
+$ git hash-object -w test.txt
+83baae61804e65cc73a7201a7252750c76066a30
+Then, write some new content to the file, and save it again:
+
+$ echo 'version 2' > test.txt
+$ git hash-object -w test.txt
+1f7a7a472abf3dd9643fd615f6da379c4acb3e3a
+Your database contains the two new versions of the file as well as the first content you stored there:
+
+$ find .git/objects -type f
+.git/objects/1f/7a7a472abf3dd9643fd615f6da379c4acb3e3a
+.git/objects/83/baae61804e65cc73a7201a7252750c76066a30
+.git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4
+
+
+Now you can revert the file back to the first version
+
+$ git cat-file -p 83baae61804e65cc73a7201a7252750c76066a30 > test.txt
+$ cat test.txt
+version 1
+or the second version:
+
+$ git cat-file -p 1f7a7a472abf3dd9643fd615f6da379c4acb3e3a > test.txt
+$ cat test.txt
+version 2
+But remembering the SHA-1 key for each version of your file isn’t practical; plus, 
+you aren’t storing the filename in your system – just the content.
+This object type is called a blob. You can have Git tell you the object type of any object in Git,
+given its SHA-1 key, with cat-file -t:
+
+$ git cat-file -t 1f7a7a472abf3dd9643fd615f6da379c4acb3e3a
+blob
+
