@@ -1,0 +1,26 @@
+Git Basic Commands:
+git --version
+git config --list
+git config --global user.name "Vinodh Kumar"
+git config --global user.email vinodh5052@gmail.com
+git config --global core.editor emacs or vim or notepad++ ==> Default Git Text Editor
+
+For Help:<online :Freenode IRC server (irc.freenode.net)> 
+git help ***config***
+git ***config*** --help
+man git-***config***
+
+Initializing a repository in existing project:
+$ git init  ===> This will create .git directory which has repository files.
+
+Important List of files && directories in .git directory: 
+$ ls -F1
+config*      ==> project-specific configuration options
+description  ==> only used by the GitWeb program
+hooks/       ==> lient- or server-side hook scripts
+info/        ==> .gitgnore file which will contain files thatt you dont want to track
+** Below 4 are Git core parts
+HEAD     ==> Branch currently checked out or working on 
+objects/ ==> original content <code>
+refs/    ==> pointers to commit objects in the data(branch)
+index    ==> Staging area information
