@@ -28,7 +28,7 @@ index    ==> Staging area information
 
 There are two type of files:
 1. Tracked: Unmodified, Modified , Staged
-2. Untracked: Remaining all which are not committed (i.r., not exist in last snapshot)
+2. Untracked: Remaining all which are not committed (i.r., not exist in last snapshot (every commit will be saved as snapshot))
 
 File status cycle:
 By default , when we clone all are tracked & unmodified ==> Modified ==> Staging
@@ -39,6 +39,24 @@ V.imp Git Commands:
 2. git add <file> ==> file added for staging
 3. git status (M-Modified, A-Staged, ??- untracled)
  short cut for above is : git status -s (##), First character ==> status of working area && second ==> status of working tree
+4.git diff ==> unstaged files changes i.e., difference b/w working tree and staging area
+5. git diff --staged ==> difference b/w staging and last commit
+   git diff --cached ==> synonym to staged
+git difftool -t=vimdiff ==> for finding available tools git difftool --tool-help command
+
+6. git commit ==> default opend editor for commit message ELSE
+   git commit ** List of all files [default all staged files will be committed] ** -m ** commit message ** 
+  git commit -v will show difference in the editor
+
+  git commit -a -m 'message' ==> this will skip adding tracked files into staging and directly commits to branch
+
+7 .removing a file from both working + staging area and will not be visible as untracked file==> git rm ** file name**
+     Remove only from staging ==> git rm --cached *** file name ** 
+8. MOving/renaming ==> git mv **file from** ** file to**
+
+ 
+
+
 
 The rules for the patterns you can put in the .gitignore file are as follows:
 1.Blank lines or lines starting with # are ignored.
