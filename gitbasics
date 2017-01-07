@@ -129,8 +129,11 @@ Only show commits adding or removing code matching the string
 git commit --ammend ==> to have same previous commit with additional changes [replaced the results of previous commit]
 
 git reset HEAD ** file name ** ==> mover from staging to unstaged area
- DANGER-----> git reset HEAD ** file name ** --head ==> working tree file is not touchedt
- git checkout -- ** file name *** ==> move from modified to unmidified i.e., same as previous commit and discard all changes
+ DANGER-----> git reset HEAD ** file name ** --head ==> working tree file is not touched
+ git checkout -- ** file name *** ==> move from modified to unmodified i.e., same as previous commit and discard all changes
+
+ git Alias ==> git config --global alias.** shortcut git command ** '** original git command ***'
+
 
 
 
