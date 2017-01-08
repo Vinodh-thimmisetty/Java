@@ -1,1 +1,39 @@
 Killing Feature of Git => diverge everything from original main line && can be merged later
+
+git branch ==> list all existing branch
+ *will be prefixed to working or checedkout branch
+
+git branch -v ==> last commits in all branches
+git branch --merged ==> all merged 
+git branch --no--merged ==> un merged & will not allow to delete this branches untill merged to master
+ 
+ git branch -d testing ==> deleting the testing branch
+  
+git branch ** new branch name ==> New branch creation 
+git checkout ** branch name *** ==> HEAD will point to workgin directory
+
+combining above two ==> git checkout -b ** branch name ***
+
+Merge your branch changes to MASTER
+	1. git checkout master
+	2. git merge ** your branch **
+If common ancestor commit is not direct then a new commit snapshot will be created for MERGE else just master & your branch will point to same snapshot
+
+Resolving Conflicts for a file like below:
+
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
+ please contact us at support@github.com
+</div>
+>>>>>>> iss53:index.html
+
+  content b/w <<<<<<<< && ====== is exists in HEAD which means your currently checkedout branch (working tree)
+   content b/w ======  && >>>>>> is the branch you tried merging to 
+   
+   Remove the above lines before adding to Staging area ==> then commit the changes
+   
+   see difference in the mergetool ==> git mergetool
+   
+   Git Rebasing ==> don't rebase any pushed changes
