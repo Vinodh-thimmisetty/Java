@@ -63,6 +63,12 @@ public class Unit1Exercise {
 		printUtilConditionFunnctionBehaviour(people, p -> p.getLastName().startsWith("C"),
 				p -> System.out.println(p));
 
+
+		System.out.println("\nJava-8 labmdas generic conditon + behaviour functions as Method References");
+		printUtilConditionFunnctionBehaviour(people, p -> p.getLastName().startsWith("C"),
+				System.out::println);
+
+		
 	}
 
 	public static void printElements(List<Person> y) {
