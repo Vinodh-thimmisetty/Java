@@ -1,4 +1,4 @@
-Contnuos Integration -> Git, Jenkins, Jira, Bitbucket.
+Continuos Integration -> Git, Jenkins, Jira, Bitbucket.
 
 # Complete Profile in 6 months except DS & Algorithms
 1.Core Java
