@@ -1,3 +1,4 @@
+http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
 Continuos Integration -> Git, Jenkins, Jira, Bitbucket.
 
 # Complete Profile in 6 months except DS & Algorithms
