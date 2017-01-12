@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-
+// FUNCTIONAL Interface methods in JAVA.UTIL.FUNCTIONS will take priority to normal function interfaces , during method Overloading 
 public class Unit1Exercise {
 
 	public static void main(String[] args) {
