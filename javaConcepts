@@ -1,0 +1,18 @@
+Java-7:
+      Underscore in NUmerical Literals --> 1_00_000
+      Strings in Switch   --> case "VINODH" 
+      Try-resource, where try block having resource which will be automatically closed --> try(Fileopen streams, Buffer opens ...){ } 
+      Exception in single catch separatere by PIPE(|)--> catch(firstException | second Exception ... e)
+      
+      
+Java-8:
+      Lambda Expression ==> p->sysout("Hello");
+      Functional Interfaces  ==> @FunctionalInterface with only one abstract method
+      Method Refrences  ==> Other of Lamdas calling methods (System.out:: Println)
+      Streams ==> Flow like water in pipe & do operations like assemby line:   sourceAsCollection.stream(***).filter(***).map(***).foreach(***)
+      Default methods in Interface ==> reversed() method to sort in reverse order of collection
+      
+ Classic: 
+        Generic & Collections ---> List<String>
+        Anonymous classes    --> Unkown instance for an Interface   new Thread(){ // unimplemented methoda };
+         
