@@ -1,0 +1,22 @@
+Java Class names start with Capital letter.
+Java instance variables must be NOUNS & camelCase.
+Java method names are VERBS & camelCase.
+Static fields--> class variables
+Non-Static fields --> Instance Variable
+Local --> method or function scope
+Parameter --> method or function scope public void draw(int a,int b) ==> a,b are parameters
+Arguments --> values passed during method invoking draw(2,3) ==> 2,3 are arguments 
+method return types are not differentiated by compiler, so two methods with same signature but different return type will NOT COMPILE
+ Use LAMBDA expression or METHOD Reference to mass method as parameter to a method
+ use VARARGS as method parameters ,if number of parameters are varying draw(int... vinodh), ==> a method can have only one VARARGS
+ Java is pass by value
+ By default no arg constructor will be provided by compiler,If parametric constructor exist then we have to provide no arg constructor
+ SHADOWING ==> if instance variable and parameter names are same && this reference to current object 
+ 
+ Access Levels
+Modifier	Class	Package	Subclass	World
+public		Y		Y		 Y			Y
+protected	Y		Y		 Y			N
+no modifier	Y		Y	     N			N
+private		Y		N		 N			N
+ 	
