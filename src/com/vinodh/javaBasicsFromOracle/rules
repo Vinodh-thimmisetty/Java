@@ -1,4 +1,6 @@
 Java Class names start with Capital letter.
+Java doesn't support multiple Inheritance i.e., a class can extend maximum of one class.
+  So to overcome this, Interfaces are designed i.e., a class can implement any number of Interfaces.
 Java instance variables must be NOUNS & camelCase.
 Java method names are VERBS & camelCase.
 Static fields--> class variables
@@ -19,4 +21,7 @@ public		Y		Y		 Y			Y
 protected	Y		Y		 Y			N
 no modifier	Y		Y	     N			N
 private		Y		N		 N			N
+ 	
+ 	static ==> Class dependant not Instance dependant
+ 	constants(variable name must be all caps separated by underscore("_") ) ==> static final , which can't be changed 
  	
