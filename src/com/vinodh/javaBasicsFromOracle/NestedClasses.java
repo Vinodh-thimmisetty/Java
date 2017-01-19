@@ -30,12 +30,14 @@ public class NestedClasses {
 		     // normal inner Class
 		NestedClasses.insideClass inClass = outerClasses.new insideClass();
 		
-		        
-		        // static method
+		         // static method
 		        innerClassStatic.innerMethod(143);
 		        
 		        // normal method
 		        inClass.innerMethod(789);
+		        
+		        // access top level instance variable from static inner class
+		         // Need to find out the way
 	}
 
 }
