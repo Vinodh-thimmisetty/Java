@@ -1,4 +1,4 @@
-package com.vinodh.networking;
+package com.vinodh.mustlearn.javaconcepts;
 
 import java.io.BufferedReader;
 import java.io.IOException;
