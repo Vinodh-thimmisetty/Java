@@ -29,6 +29,19 @@ import java.util.stream.Collectors;
  */
 public class CollectionsBasics {
 
+	/***
+	  *  General Purpose Implementations :: accept Nulls ++ Not Synchronized 
+		Interfaces	[Hash table Implementations]	[Resizable array Implementations]	[Tree Implementations]	[Linked list Implementations]	 [Hash table + Linked list Implementations]
+		Set			      HashSet	 						##								TreeSet	 				 ##							    LinkedHashSet
+		List	 	       ##								ArrayList						##					 	LinkedList						##		 
+		Queue	 	 	   ##								 ##								 ##						 ##								 ##		 
+		Deque	 		   ## 							    ArrayDeque						 ##	 					LinkedList						 ##	 
+		Map				   HashMap							 ##	 							TreeMap	 					## 							LinkedHashMap
+
+	  * 
+	  * 
+	  */
+
 	public static void main(String[] args) {
 		/****
 		 * 
@@ -101,7 +114,11 @@ public class CollectionsBasics {
 		Integer[] test ={1,2,3,4,8,2,13,53,23,89,808,34,25,55,65,6,2,4,8,9,1,2,5,6,77,80,3,3,32,2,5,6};
 		List<Integer> lists = Arrays.asList(test);
 		lists.subList(0, 5).stream().collect(Collectors.toList()).forEach(System.out::println);
-	 // COmparable Interface==> Natural Sort Order
+	 // Binary searhc in Collections
+		System.out.println("search 808--->"+Collections.binarySearch(lists, 808));
+ 		System.out.println("search 4--->"+Collections.binarySearch(lists, 4));
+		
+		// COmparable Interface==> Natural Sort Order
 		System.out.println("--Comparible-ASC-----------");
 		
 		Collections.sort(lists);
