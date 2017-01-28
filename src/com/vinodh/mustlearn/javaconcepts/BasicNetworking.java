@@ -3,7 +3,9 @@ package com.vinodh.mustlearn.javaconcepts;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.MalformedURLException;
+import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -13,11 +15,15 @@ public class BasicNetworking {
 
 	/**
 	 * TCP (Transmission Control Protocol) is a connection-based protocol that
-	 * provides a reliable flow of data between two computers.
+	 * provides a reliable flow of data between two computers. Guarantee Data delivery in the order it is received, else error is reported
 	 * 
 	 * UDP (User Datagram Protocol) is a protocol that sends independent packets
 	 * of data, called datagrams, from one computer to another with no
-	 * guarantees about arrival. UDP is not connection-based like TCP.
+	 * guarantees about arrival. UDP is not connection-based like TCP. [[ Most firewall and routers will be configured not to allow UDP ]]
+	 * 
+	 * ping the network , to test the connection between two networks
+	 * Port: represented by 16 bit, where 0-1023 is restricted for usgin HTTP,FTP etc
+	 * TCP & UDP use port numbers to map the incoming data to particular process running on a computer
 	 * 
 	 * @throws URISyntaxException
 	 * @throws IOException 
@@ -77,7 +83,7 @@ public class BasicNetworking {
 				new InputStreamReader(oracle.openStream()))) {
 			String inputLine = null;
 			while ((inputLine = bufferedReader.readLine()) != null) {
-				System.out.println(inputLine);
+//				System.out.println(inputLine);
 			}
 		} catch (IOException e) {
 
@@ -111,7 +117,7 @@ public class BasicNetworking {
 				new InputStreamReader(yc.getInputStream()))) {
 			String inputLine = null;
 			while ((inputLine = bufferedReader.readLine()) != null) {
-				System.out.println(inputLine);
+//				System.out.println(inputLine);
 			}
 		} catch (IOException e) {
 
@@ -119,6 +125,46 @@ public class BasicNetworking {
 		}
 
 
+		/***
+		 * Sockets (something like a ARROW which points to one of the two end points) i.e, client listens to Servers socket && vicecersa 
+			To communicate b/w client and server a communication is established with SOCKET @ both ends, which will bound to specific PORT numbers 
+		 * 
+		 *  Open a socket.
+			Open an input stream and output stream to the socket.
+			Read from and write to the stream according to the server's protocol.
+			Close the streams.
+			Close the socket.
+			
+		 */
+		
+		System.out.println(" -- Socket Client example----");
+		
+		try (
+				// TO which computer you are trying to connect
+				Socket socket = new Socket("www.google.com", 8080);
+				// Sent the Data to Server through SOCKET from client
+				PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+				// Received info from the Client Socket which will be sent to Server 
+				BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				// Reads the response from the server
+				BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(System.in))
+
+		) {
+
+			String inputText=null;
+				while((inputText = bufferedReader2.readLine()) != null){
+					printWriter.write(inputText);
+					System.out.println(" ---->"+bufferedReader.readLine());
+				}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+				
+		/**
+		 * UDP: DatagramSocket => request from the client
+ 		 * 		DatagramPacket => received @ server end from DatagramSocket & sent back to client
+		 */
+		
 	}
 
 }
