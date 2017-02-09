@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Program3 {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter your salary to calculate Income Tax");
+		Long salary = scanner.nextLong();
+		 
+		Double tax = (salary > 500_000) ? (0.06 * (salary-50_000))
+				: ((salary > 250_000 && salary <= 500_000) ? (0.05 * (salary-50_000))
+						: (((salary > 100_000 && salary <= 250_000) ? (0.04 * (salary-50_000))
+								: (((salary > 75_000 && salary <= 100_000) ? (0.03 * (salary-50_000))
+										: (((salary > 50_000 && salary <= 75_000) ? (0.02 * (salary-50_000))
+												: (0.01 * (salary-50_000)))))))));
+		System.out.println("Your income tax is :: " + (tax+(0.01*salary))+" dollars");
+	}
+
+}
