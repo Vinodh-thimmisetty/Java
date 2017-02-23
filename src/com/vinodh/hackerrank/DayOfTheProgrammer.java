@@ -22,7 +22,7 @@ public class DayOfTheProgrammer {
 		LocalDate date;
 		switch (y) {
 		case 1918:
-			date = LocalDate.ofYearDay(1918, 243);
+			date = LocalDate.ofYearDay(1918, 269);
 			break;
 		default:
 			boolean isLeap = false;
