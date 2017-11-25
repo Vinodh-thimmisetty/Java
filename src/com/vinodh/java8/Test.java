@@ -2,8 +2,8 @@ package com.vinodh.java8;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Comparator;
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -21,7 +21,7 @@ public class Test {
 	 * thrown if stream is used after termination opertions
 	 * 
 	 * @param args
-	 */
+	 */ 	
 	public static void main(String[] args) {
 		// Prepare the Functional interface behavior
 		
@@ -30,6 +30,9 @@ public class Test {
 		
 		// Consumer :: Accept any input type and return NOTHING
 		Consumer<String> printTasks  = task -> System.out.println(task);
+		
+		// BiConsumer :: Accept any TWO input type and return NOTHING
+		BiConsumer<? extends Object, ? extends Object> loopMap =  (key,value)->System.out.println(key+":"+value);
 		
 		// Supplier:: Accept NOTHING but returns any type
 		Supplier<Double> piValue = () -> Math.PI;
@@ -52,9 +55,9 @@ public class Test {
 		Stream<Task> sortedTasks = filteredTasks
 												.sorted((x, y) -> x.getCreatedOn().compareTo(y.getCreatedOn()));
 		
-		Stream<Task> sortBasedOnTitle = filteredTasks.sorted(Comparator.comparing(Task::getTitle));
+		//Stream<Task> sortBasedOnTitle = filteredTasks.sorted(Comparator.comparing(Task::getTitle));
 		
-		Stream<Task> reverseSortTitles = filteredTasks.sorted(Comparator.comparing(Task::getTitle, String.CASE_INSENSITIVE_ORDER).reversed());
+		//Stream<Task> reverseSortTitles = filteredTasks.sorted(Comparator.comparing(Task::getTitle, String.CASE_INSENSITIVE_ORDER).reversed());
 
 		// print sorted tasks
 		// sortedTasks.forEach(System.out::println);
@@ -64,7 +67,13 @@ public class Test {
 												.map(title)
 												.collect(Collectors.toList());
 		// print Titles
-		taskTitlesList.forEach(printTasks);
+		// taskTitlesList.forEach(printTasks);
+		
+		 List<Task> tasks = tasks();
+		//tasks.stream().collect(Collectors.groupingBy(Task::getType)).forEach((BiConsumer<? super TaskType, ? super List<Task>>) loopMap);
+		//tasks.stream().collect(Collectors.groupingBy(Task::getTags,Collectors.mapping(Task::getTags, Collectors.toList()))).forEach((BiConsumer<? super Set<String>, ? super List<Set<String>>>) loopMap);
+		 
+		 tasks.stream().collect(Collectors.partitioningBy(tt->tt.getCreatedOn().isAfter(LocalDate.now()))).forEach((x,task)->System.out.println(task));
 
 	}
 
@@ -75,7 +84,7 @@ public class Test {
 							 .title("Reading Git")
 							 .type(TaskType.READING)
 							 .createdOn(LocalDate.of(2017, Month.NOVEMBER, 25))
-							 .tags(Stream.of("one","two","three").collect(Collectors.toSet()))
+							 .tags(Stream.of("git","version control","eclipse").collect(Collectors.toSet()))
 							 .done(false)
 							 .dueOn(LocalDate.of(2018, Month.DECEMBER, 12))
 							 .build(),
@@ -84,7 +93,7 @@ public class Test {
 							 .title("Reading Java")
 							 .type(TaskType.READING)
 							 .createdOn(LocalDate.of(2016, Month.NOVEMBER, 25))
-							 .tags(Stream.of("one","two","three").collect(Collectors.toSet()))
+							 .tags(Stream.of("eclipse","java","programming").collect(Collectors.toSet()))
 							 .done(true)
 							 .dueOn(LocalDate.of(2017, Month.JULY, 12))
 							 .build(),
@@ -93,7 +102,7 @@ public class Test {
 							 .title("Coding the Application")
 							 .type(TaskType.CODING)
 							 .createdOn(LocalDate.of(2017, Month.JUNE, 25))
-							 .tags(Stream.of("one","two","three").collect(Collectors.toSet()))
+							 .tags(Stream.of("coding","programming","java","eclipse").collect(Collectors.toSet()))
 							 .done(false)
 							 .dueOn(LocalDate.of(2020, Month.DECEMBER, 12))
 							 .build(),
@@ -102,7 +111,7 @@ public class Test {
 							 .title("Writing the Blog")
 							 .type(TaskType.WRITING)
 							 .createdOn(LocalDate.of(2014, Month.FEBRUARY, 25))
-							 .tags(Stream.of("one","two","three").collect(Collectors.toSet()))
+							 .tags(Stream.of("blog","writing","money").collect(Collectors.toSet()))
 							 .done(false)
 							 .dueOn(LocalDate.of(2019, Month.JULY, 12))
 							 .build(),
@@ -120,7 +129,7 @@ public class Test {
 							 .title("Reading Spring")
 							 .type(TaskType.READING)
 							 .createdOn(LocalDate.of(2014, Month.NOVEMBER, 25))
-							 .tags(Stream.of("one","two","three").collect(Collectors.toSet()))
+							 .tags(Stream.of("java","mvc","eclipse","spring").collect(Collectors.toSet()))
 							 .done(false)
 							 .dueOn(LocalDate.of(2020, Month.DECEMBER, 12))
 							 .build()).collect(Collectors.toList());
